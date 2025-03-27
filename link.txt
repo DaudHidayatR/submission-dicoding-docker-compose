@@ -1,0 +1,1 @@
+docker pull ghcr.io/daudhidayatr/item-app:v1
