@@ -1,16 +1,15 @@
 image_app="item-app"
 image_version="v1"
-github="DaudHidayatR"
+github="daudhidayatr"
 
-
-docker build -t $image_app:$image_version .
-
-docker images
-
-docker tag $image_app:$image_version ghcr.io/$github/$image_app:$image_version
+#docker login ghcr.io -u $github
+echo $CR_PAT | docker login ghcr.io -u $github --password-stdin
+docker build -t ghcr.io/$github/$image_app:$image_version .
 
 docker images
-
-docker login ghcr.io -u $github
+##
+docker tag item-app:v1 ghcr.io/$github/$image_app:$image_version
+##
+docker images
 
 docker push ghcr.io/$github/$image_app:$image_version
